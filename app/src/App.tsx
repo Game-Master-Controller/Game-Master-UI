@@ -9,7 +9,8 @@ import thunk from 'redux-thunk';
 import './App.css';
 import rootReducer from './reducers/rootReducer';
 import Home from './pages/home';
-import Form from './pages/form';
+import Step1 from './pages/pipeline/step1';
+import Step2 from './pages/pipeline/step2';
 import theme from './Theme';
 import { ThemeProvider } from '@material-ui/core';
 
@@ -24,7 +25,8 @@ const App = () => (
       <Router>
           <Switch>
             <Route exact path="/home" component={Home} />
-            <Route exact path="/form" component={Form} />
+            <Route exact path="/step1" component={Step1} />
+            <Route exact path="/step2" component={Step2} />
             <Route path="/*"><Redirect to="/home"/></Route>
           </Switch>
       </Router>
