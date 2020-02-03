@@ -14,6 +14,7 @@ const Input: React.SFC<InputProps> = ({ title, field, form }) => {
     const error: boolean = form.touched[field.name] && form.errors[field.name]
     return(
         <TextField 
+            type="number"
             helperText={error}
             error={error}
             label={title} inputProps={{...field}}/>
