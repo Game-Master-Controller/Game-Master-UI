@@ -1,13 +1,12 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Form from './form';
-import TextField from '@material-ui/core/TextField';
 import Stepper from '../stepper';
 
-export const Step2 = () => {
+export const Step1 = (props: any) => {
   return (
     <React.Fragment>
-      <Stepper step="2" />
+      <Stepper name="Assign Abilities" step="1" />
       <Container>
         <Form />
       </Container>
@@ -15,4 +14,4 @@ export const Step2 = () => {
   );
 };
 
-export default Step2;
+export default Step1;

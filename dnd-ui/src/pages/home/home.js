@@ -3,18 +3,8 @@ import Button from '@material-ui/core//Button';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import { MapDispatchToPropsFunction } from 'react-redux';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
-import { AppState } from '../../reducers/rootReducer';
-import { GameAction, setGame } from '../../reducers/home/actions';
 
-
-export const Home: React.FC<ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>> = ({
-  setGame
-}) => {
-
+export const Home = ({ setGame }) => {
   const [searchedGame, setSearchedGame] = useState('');
   const [createdGame, setCreatedGame] = useState('');
 
@@ -52,7 +42,7 @@ export const Home: React.FC<ReturnType<typeof mapStateToProps> & ReturnType<type
               variant="contained"
               size="large"
               disabled={!searchedGame}
-              onClick={() => setGame("Hello")}
+              onClick={() => setGame('Hello')}
             >
               Join A Game
             </Button>
@@ -67,9 +57,6 @@ export const Home: React.FC<ReturnType<typeof mapStateToProps> & ReturnType<type
               onChange={e => {
                 setCreatedGame(e.target.value);
               }}
-              // InputProps={{
-              //   endAdornment: <InputAdornment position="end">Kg</InputAdornment>
-              // }}
               inputProps={{ maxLength: 12 }}
             />
           </Grid>
@@ -90,17 +77,4 @@ export const Home: React.FC<ReturnType<typeof mapStateToProps> & ReturnType<type
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  game: state.home.game
-});
-
-const mapDispatchToProps = (dispatch: Dispatch<GameAction>) => {
-  return {
-    setGame: (data: string) => dispatch(setGame(data))
-}
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);
+export default Home;

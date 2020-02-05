@@ -1,0 +1,8 @@
+.field{
+    background-image: url('./str.png');
+    background-size: 145px;
+    background-repeat: no-repeat;
+    height: 10.2em;
+    width: 9em;
+    margin-bottom: 1em;
+}
