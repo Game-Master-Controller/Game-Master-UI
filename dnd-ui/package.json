@@ -41,9 +41,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -58,10 +55,6 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.19",
-    "@typescript-eslint/parser": "^2.18.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1"
   }
 }

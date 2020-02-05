@@ -1,10 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { object, number } from 'yup';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import Strength from './str.png';
-import { Redirect } from 'react-router';
 import { TextField } from 'formik-material-ui';
 import './form.css';
 
@@ -22,6 +19,7 @@ const MyForm = props => (
     initialValues={{ skills }}
     onSubmit={values => {
       console.log(values);
+      props.history.push('/step2');
     }}
     render={({ values }) => (
       <Form style={{ marginTop: '1em' }}>

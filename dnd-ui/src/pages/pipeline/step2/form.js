@@ -79,11 +79,11 @@ const MyForm = () => (
                     }}
                   />
                 </Grid>
-                <Grid container item xs={6} direction="row">
-                  <Grid style={{ lineHeight: '2.5em', paddingRight: '.3em' }}>
+                <Grid container item xs={7} direction="row">
+                  <Grid style={{ lineHeight: '3em', paddingRight: '.3em' }}>
                     {skill.name}
                   </Grid>
-                  <Grid style={{ lineHeight: '2.5em', color: 'gray' }}>
+                  <Grid style={{ lineHeight: '3em', color: 'gray' }}>
                     {skill.type}
                   </Grid>
                 </Grid>
@@ -92,7 +92,7 @@ const MyForm = () => (
           </Grid>
         </Grid>
         <Button
-          style={{ marginTop: '1em' }}
+          style={{ marginTop: "1em" }}
           type="submit"
           fullWidth
           color="primary"

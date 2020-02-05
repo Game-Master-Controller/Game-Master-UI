@@ -14,6 +14,7 @@ import reduxLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import './App.css';
 import Home from './pages/home';
+import Find from './pages/find';
 import Step1 from './pages/pipeline/step1';
 import Step2 from './pages/pipeline/step2';
 import theme from './theme';
@@ -24,6 +25,7 @@ const App = () => (
       <Router>
         <Switch>
           <Route exact path="/home" component={Home} />
+          <Route exact path="/find" component={Find} />
           <Route exact path="/step1" component={Step1} />
           <Route exact path="/step2" component={Step2} />
           <Route path="/*">

@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 
-export const Home = ({ setGame }) => {
+export const Home = (props) => {
   const [searchedGame, setSearchedGame] = useState('');
   const [createdGame, setCreatedGame] = useState('');
 
@@ -12,65 +12,18 @@ export const Home = ({ setGame }) => {
     <Container>
       <Grid container justify="center" alignItems="center">
         <Grid item container justify="center" style={{ marginBottom: '6em' }}>
-          <h1>Dungeons And Dragons</h1>
+          <h1>Welcome Player 23456</h1>
         </Grid>
-
-        <Grid
-          spacing={4}
-          item
-          container
-          alignItems="stretch"
-          justify="center"
-          direction="column"
-          style={{ maxWidth: '30em' }}
-        >
-          <Grid item>
-            <TextField
-              value={searchedGame}
-              fullWidth
-              placeholder="Enter A Game Code"
-              onChange={e => {
-                setSearchedGame(e.target.value);
-              }}
-              inputProps={{ maxLength: 12 }}
-            />
-          </Grid>
-          <Grid item>
-            <Button
-              fullWidth
-              color="secondary"
-              variant="contained"
-              size="large"
-              disabled={!searchedGame}
-              onClick={() => setGame('Hello')}
-            >
-              Join A Game
-            </Button>
-          </Grid>
-          <Grid item container alignItems="center" justify="center">
-            <h3>or</h3>
-          </Grid>
-          <Grid item>
-            <TextField
-              fullWidth
-              placeholder="Create Game"
-              onChange={e => {
-                setCreatedGame(e.target.value);
-              }}
-              inputProps={{ maxLength: 12 }}
-            />
-          </Grid>
-          <Grid item>
-            <Button
-              fullWidth
-              color="primary"
-              variant="contained"
-              size="large"
-              disabled={!createdGame}
-            >
-              Create A Game
-            </Button>
-          </Grid>
+        <Grid item>
+          <Button
+            fullWidth
+            color="primary"
+            variant="contained"
+            size="large"
+            onClick={() => props.history.push('/step1')}
+          >
+            Set up Player
+          </Button>
         </Grid>
       </Grid>
     </Container>
