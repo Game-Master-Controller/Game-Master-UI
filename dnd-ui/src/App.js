@@ -1,39 +1,43 @@
-import React from 'react';
-import { Provider } from 'react-redux';
+import React, { useState } from "react";
+import { Provider } from "react-redux";
 import {
   BrowserRouter as Router,
   Link,
   Route,
   Switch,
   Redirect
-} from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { load, save } from 'redux-localstorage-simple';
-import reduxLogger from 'redux-logger';
-import thunk from 'redux-thunk';
-import './App.css';
-import Home from './pages/home';
-import Find from './pages/find';
-import Step1 from './pages/pipeline/step1';
-import Step2 from './pages/pipeline/step2';
-import theme from './theme';
-import { ThemeProvider } from '@material-ui/core';
+} from "react-router-dom";
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import { sessionService } from "redux-react-session";
+import "./App.css";
+import Home from "./pages/home";
+import Find from "./pages/find";
+import theme from "./theme";
+import { ThemeProvider } from "@material-ui/core";
+import reducers from "./reducers";
 
-const App = () => (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/find" component={Find} />
-          <Route exact path="/step1" component={Step1} />
-          <Route exact path="/step2" component={Step2} />
-          <Route path="/*">
-            <Redirect to="/home" />
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
-);
-
+const App = () => {
+  const [store] = useState(createStore(reducers, applyMiddleware(thunk)));
+  sessionService.initSessionService(store);
+  store.subscribe(() => {
+    console.log("store.getState()", store.getState());
+  });
+  return (
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/find" component={Find} />
+            <Route path="/*">
+              <Redirect to="/find" />
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </Provider>
+  );
+};
 export default App;

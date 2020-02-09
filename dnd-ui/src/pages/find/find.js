@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core//Button';
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
+import React, { useState } from "react";
+import Button from "@material-ui/core//Button";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import TextField from "@material-ui/core/TextField";
 
-export const Find = (props) => {
-  const [searchedGame, setSearchedGame] = useState('');
-  const [createdGame, setCreatedGame] = useState('');
+export const Find = props => {
+  const [searchedGame, setSearchedGame] = useState("");
+  const [createdGame, setCreatedGame] = useState("");
 
   return (
     <Container>
       <Grid container justify="center" alignItems="center">
-        <Grid item container justify="center" style={{ marginBottom: '6em' }}>
+        <Grid item container justify="center" style={{ marginBottom: "6em" }}>
           <h1>Dungeons And Dragons</h1>
         </Grid>
 
@@ -22,7 +22,7 @@ export const Find = (props) => {
           alignItems="stretch"
           justify="center"
           direction="column"
-          style={{ maxWidth: '30em' }}
+          style={{ maxWidth: "30em" }}
         >
           <Grid item>
             <TextField
@@ -42,7 +42,7 @@ export const Find = (props) => {
               variant="contained"
               size="large"
               disabled={!searchedGame}
-              onClick={() => props.history.push('/home')}
+              onClick={() => props.history.push("/home")}
             >
               Join A Game
             </Button>
@@ -67,7 +67,7 @@ export const Find = (props) => {
               variant="contained"
               size="large"
               disabled={!createdGame}
-              onClick={() => props.history.push('/home')}
+              onClick={() => props.history.push("/home")}
             >
               Create A Game
             </Button>
